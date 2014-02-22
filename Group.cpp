@@ -4,11 +4,8 @@
 using namespace std;
 
 Client* Group::operator[](const string& email) {
-    for (int i = 0; i < objects.size(); i++) {
-        Client *result = objects[i];
-        if ((*result).getEmail() == email)
-            return result;
-    }
+	for (Client *client : objects)
+        if ((*client).getEmail() == email) return client;
     return NULL;
 }
 
@@ -19,10 +16,10 @@ void Group::add(Client* ptr) {
     }
 }
 
-Group::iterator begin() {
+Group::iterator Group::begin() {
     return objects.begin();
 }
 
-Group::iterator end() {
+Group::iterator Group::end() {
     return objects.end();
 }
