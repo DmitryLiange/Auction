@@ -1,7 +1,11 @@
+// Created by group 3.1.2 
 #include "Listing.h"
 
 void Listing::add(Advertisement* ptr) {
-	Listing::objects.push_back(ptr);
+	if (ptr != NULL) {
+        objects.push_back(ptr);
+	} else {
+    }
 }
 
 Listing::iterator Listing::begin() {
@@ -13,8 +17,10 @@ Listing::iterator Listing::end() {
 }
 
 Advertisement* Listing::operator[] (const int& number) {
-	for (Advertisement* adv : objects) {
-		if ((*adv).getNumber() == number) return adv;
+	for (iterator it = objects.begin(); it != objects.end(); it ++) {
+		if ((*it)->getNumber() == number) {
+			return *it;
+		}
 	}
-	throw exception("No such an element");
+	return NULL;
 }
