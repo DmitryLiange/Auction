@@ -1,3 +1,4 @@
+// Created by group 3.1.2 
 #include "Categories.h"
 
 using namespace std;
@@ -12,7 +13,7 @@ void Categories::add (Category* ptr) {
 }
 
 Category* Categories::operator[] (const int& number) {
-		for (iterator it = objects.begin(); it != objects.end(); it ++) {
+	for (iterator it = objects.begin(); it != objects.end(); it ++) {
 		if ((*it)->getNumber() == number) {
 			return *it;
 		}
